@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Đăng nhập 💖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffc3e1 0%, #ffb3d9 50%, #ffa3d1 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(255, 105, 180, 0.4);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+      position: relative;
+      max-width: 350px;
+      width: 90%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #ff69b4;
+      margin-bottom: 25px;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 2px solid #ffb3d9;
+      border-radius: 25px;
+      outline: none;
+      font-size: 1em;
+      color: #d63384;
+      background: #fffafc;
+      transition: all 0.3s;
+    }
+
+    input:focus {
+      border-color: #ff69b4;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+    }
+
+    p#error {
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 2em;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .flower1 { top: -20px; left: -20px; }
+    .flower2 { bottom: -20px; right: -20px; }
+  </style>
+</head>
+<body>
+  <div class="flower flower1">🌸</div>
+  <div class="flower flower2">🌺</div>
+
+  <div class="login-container">
+    <h2> Đăng nhập </h2>
+    <input type="text" id="username" placeholder="Tên đăng nhập">
+    <input type="password" id="password" placeholder="Mật khẩu">
+    <button onclick="login()">Đăng nhập</button>
+    <p id="error"></p>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      const validUser = "neo";
+      const validPass = "depgai";
+
+      if (user === validUser && pass === validPass) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html";
+      } else {
+        document.getElementById("error").innerText = "Sai tài khoản hoặc mật khẩu ";
+      }
+    }
+  </script>
+</body>
+</html>
